@@ -4,4 +4,4 @@
 
 - GitHub Actions goes beyond just DevOps and lets you run workflows when other events happen in your repository.
 
--tHub provides Linux, Windows, and macOS virtual machines to run your workflows.
+- GitHub provides Linux, Windows, and macOS virtual machines to run your workflows.
