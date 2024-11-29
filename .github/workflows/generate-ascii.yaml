@@ -9,17 +9,9 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v4
 
-      - name: Install Cowsay
-        uses: sudo apt-get install cowsay -y
-
-      - name: Execute Cowsay CMD
-        uses: cowsay -f test "some test file read raw..." >> test.txt
-
-      - name: Test file
-        uses: grep -i "test" test.txt
-
-      - name: Read file
-        uses: cat text.txt     
-
       - name: List Files
-        run: ls -ltra
+        run: ls -ltra   
+
+      - name: Run Script
+        run: ./script.sh         
+
