@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Sleep for 5 seconds
-        uses: sleep 5
+        run: sleep 5
 
       - name: Test file exist
         run: grep -i "dragon" test.txt
@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Read file
-        uses: cat test.txt
+        run: cat test.txt
 
       - name: Deploy
         run: echo deploying...
