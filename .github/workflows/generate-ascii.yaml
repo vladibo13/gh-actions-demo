@@ -10,13 +10,13 @@ jobs:
         run: sudo apt-get install cowsay -y
 
       - name: Execute Cowsay CMD
-        run: cowsay -f dragon "some test file read raw..." >> test.txt  
+        run: cowsay -f dragon "some test file read raw dragon..." >> dragon.txt  
       
       - name: Upload text file
         uses: actions/upload-artifact@v3
         with:
           name: test-text-file
-          path: test.txt 
+          path: dragon.txt 
 
   build_job_2:
     needs: build_job_1
@@ -28,7 +28,7 @@ jobs:
           name: test-text-file
 
       - name: Test file exist
-        run: grep -i "dragon" test.txt
+        run: grep -i "dragon" dragon.txt
 
   build_job_3:
     needs: [build_job_2]
@@ -38,9 +38,9 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: test-text-file
-          
+
       - name: Read file
-        run: cat test.txt
+        run: cat dragon.txt
 
       - name: Deploy
         run: echo deploying...
