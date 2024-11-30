@@ -3,17 +3,38 @@ name: Generate Ascii
 on: push
 
 jobs:
-  ascii_job:
+  build_job_1:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v4
+      - name: Install Cowsaay Program
+        uses: sudo apt-get install cowsay -y
 
-      - name: List Files
-        run: ls -ltra   
+      - name: Execute Cowsay CMD
+        run: cowsay -f dragon "some test file read raw..." >> test.txt  
+      
+      - name: Sleep for 15 seconds
+        run: sleep 15  
+  build_job_2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sleep for 5 seconds
+        uses: sleep 5
 
-      - name: Run Script
-        run: |
-          chmod +x script.sh
-          ./script.sh         
+      - name: Test file exist
+        run: grep -i "dragon" test.txt
+
+  build_job_3:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Read file
+        uses: cat test.txt
+
+      - name: Deploy
+        run: echo deploying...
+          
+
+      # - name: Run Script
+      #   run: |
+      #     chmod +x script.sh
+      #     ./script.sh         
 
