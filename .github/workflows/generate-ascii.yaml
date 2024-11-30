@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install Cowsaay Program
-        uses: sudo apt-get install cowsay -y
+        run: sudo apt-get install cowsay -y
 
       - name: Execute Cowsay CMD
         run: cowsay -f dragon "some test file read raw..." >> test.txt  
